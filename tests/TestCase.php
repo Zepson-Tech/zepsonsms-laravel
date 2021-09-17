@@ -2,9 +2,8 @@
 
 namespace NotificationChannels\NextSms\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use NotificationChannels\NextSms\NextSmsServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

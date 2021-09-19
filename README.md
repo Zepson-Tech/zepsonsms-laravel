@@ -1,4 +1,4 @@
-# ZepsonSMS Developer API Docs | Official Zepson SMS API package
+## ZepsonSMS Developer API Docs | Official Zepson SMS API package
 
 ## Overview
 

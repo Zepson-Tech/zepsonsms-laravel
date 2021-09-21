@@ -4,8 +4,8 @@ namespace NotificationChannels\ZepsonSms;
 
 use Exception;
 use Illuminate\Notifications\Notification;
-use ZepsonSms\SDK\ZepsonSms as ZepsonSmsSDK;
 use NotificationChannels\ZepsonSms\Exceptions\CouldNotSendNotification;
+use ZepsonSms\SDK\ZepsonSms as ZepsonSmsSDK;
 
 class ZepsonSmsChannel
 {

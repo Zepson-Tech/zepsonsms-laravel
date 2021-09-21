@@ -3,11 +3,10 @@
 namespace NotificationChannels\ZepsonSms;
 
 use NotificationChannels\ZepsonSms\Commands\ZepsonSmsCommand;
+use NotificationChannels\ZepsonSms\Exceptions\InvalidConfiguration;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use ZepsonSms\SDK\ZepsonSms as ZepsonSmsSdk;
-use NotificationChannels\ZepsonSms\Exceptions\InvalidConfiguration;
-
 
 class ZepsonSmsServiceProvider extends PackageServiceProvider
 {
@@ -22,9 +21,7 @@ class ZepsonSmsServiceProvider extends PackageServiceProvider
             ->hasCommand(ZepsonSmsCommand::class);
     }
 
-
     public function bootingPackage()
-
     {
         /*
          * Bootstrap the application services.

@@ -1,8 +1,8 @@
 <?php
 
-namespace NotificationChannels\NextSms\Tests;
+namespace NotificationChannels\ZepsonSms\Tests;
 
-use NotificationChannels\NextSms\NextSmsServiceProvider;
+use NotificationChannels\ZepsonSms\ZepsonSmsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -15,7 +15,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            NextSmsServiceProvider::class,
+            ZepsonSmsServiceProvider::class,
         ];
     }
 }

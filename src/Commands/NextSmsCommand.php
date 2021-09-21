@@ -1,10 +1,10 @@
 <?php
 
-namespace NotificationChannels\NextSms\Commands;
+namespace NotificationChannels\ZepsonSms\Commands;
 
 use Illuminate\Console\Command;
 
-class NextSmsCommand extends Command
+class ZepsonSmsCommand extends Command
 {
     public $signature = 'laravel-zepsonsms';
 

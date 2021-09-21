@@ -10,7 +10,7 @@ composer require zepson/laravel-zepsonsms
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="NotificationChannels\NextSms\NextSmsServiceProvider" --tag="zepsonsms-config"
+php artisan vendor:publish --provider="NotificationChannels\ZepsonSms\ZepsonSmsServiceProvider" --tag="zepsonsms-config"
 ```
 
 This is the contents of the published config file:
@@ -23,7 +23,7 @@ return [
 ## Usage
 
 ```php
-$zepsonsms = new NotificationChannels\NextSms();
+$zepsonsms = new NotificationChannels\ZepsonSms();
 echo $zepsonsms->echoPhrase('Hello, NotificationChannels!');
 ```
 

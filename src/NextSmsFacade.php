@@ -1,16 +1,16 @@
 <?php
 
-namespace NotificationChannels\NextSms;
+namespace NotificationChannels\ZepsonSms;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \NotificationChannels\NextSms\NextSms
+ * @see \NotificationChannels\ZepsonSms\ZepsonSms
  */
-class NextSmsFacade extends Facade
+class ZepsonSmsFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'laravel-zepsonsms';
+        return 'zepsonsmsservice';
     }
 }

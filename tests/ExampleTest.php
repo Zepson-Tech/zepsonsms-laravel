@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\NextSms\Tests;
+namespace NotificationChannels\ZepsonSms\Tests;
 
 class ExampleTest extends TestCase
 {

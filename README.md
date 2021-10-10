@@ -1,57 +1,56 @@
-## ZepsonSMS Developer API Docs | Official Zepson SMS API package
+# Laravel ZepsonSMS
 
-## Overview
+## Installation
 
-This page will help you get started with API.
+You can install the package via composer:
 
-This document will provide instructions on how to quickly integrate SMS messaging services into various solutions by using HTTP application programming interface (HTTP API). The HTTP API can be used for sending SMS messages, making Number Context (number validation) requests and receiving inbound SMS messages sent from mobile phones.
-
-API is based on REST standards, enabling you to use your browser for accessing URLs. In order to interact with our API, any HTTP client in any programming language can be used.
-
-## Base URL
-
-Submit all requests to the base URL. All the requests are submitted thorough HTTP POST method.
-
-```
-https://zepsonsms.co.tz/
+```bash
+composer require zepson/laravel-zepsonsms
 ```
 
-## Content-Type & Accept header
-
-API supports JSON and XML Content-Types and Accept criteria that should be specified in the header. If the Content-Type is not specified you will receive a General error. Depending which Accept type is chosen in the deader for the request, the same one will be applied in the response.
-
-```
-Content-Type: application/json
-Accept header: application/json
+You can publish the config file with:
+```bash
+php artisan vendor:publish --provider="NotificationChannels\ZepsonSms\ZepsonSmsServiceProvider" --tag="zepsonsms-config"
 ```
 
-## Authentication & Authorization
+This is the contents of the published config file:
 
-We support basic authorization using a username and password with Base64 encoding variation RFC2045-MIME.
-
-Username and password are combined into a string username:password.
-The resulting string is encoded using the `RFC2045-MIME` variant of Base64.
-The authorization method and a space, like this: "Basic ", are put before the encoded string.
-
-#### EXAMPLE
-
-```
-Username: Aladdin
-Password: open sesame
+```php
+return [
+  #
+];
 ```
 
+## Usage
+
+```php
+$zepsonsms = new NotificationChannels\ZepsonSms();
+echo $zepsonsms->echoPhrase('Hello, NotificationChannels!');
 ```
-Base64 encoded string: QWxhZGRpbjpvcGVuIHNlc2FtZQ==
-Authorization header: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+
+## Testing
+
+```bash
+composer test
 ```
 
-## Table of Contents
+## Changelog
 
-- [Contacts API](./contacts.md)
-- [Contact groups API](/contact_groups.md)
-- [SMS API](/sms.md)
-- [Profile API](/profile.md)
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## 🙌 Credits
+## Contributing
 
-- [Alpha Olomi](https://alpha.olomi.com)
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [Alpha Olomi](https://github.com/Zepson-Technologies)
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

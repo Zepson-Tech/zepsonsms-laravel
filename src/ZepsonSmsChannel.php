@@ -34,10 +34,10 @@ class ZepsonSmsChannel
         }
 
         try {
-            $this->ZepsonSms->singleDestination([
-                'to' => $phoneNumber,
-                'text' => $message->getContent(),
-                'from' => $message->getSender(),
+            $this->ZepsonSms->sendSms([
+                'recipient' => $phoneNumber,
+                'message' => $message->getContent(),
+                'sender_id' => $message->getSender(),
             ]);
         } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());

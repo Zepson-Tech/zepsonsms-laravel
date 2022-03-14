@@ -12,6 +12,7 @@ class ZepsonSmsMessage
 
     /** @var string|null */
     protected $phoneField;
+
     /**
      * Set content for this message.
      */
@@ -22,10 +23,9 @@ class ZepsonSmsMessage
         return $this;
     }
 
-
-     /**
-     * Set phone db field for this message.
-     */
+    /**
+    * Set phone db field for this message.
+    */
     public function phoneField(string $phoneField): self
     {
         $this->phoneField = trim($phoneField);

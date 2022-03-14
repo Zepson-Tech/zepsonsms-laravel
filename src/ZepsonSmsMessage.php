@@ -10,12 +10,25 @@ class ZepsonSmsMessage
     /** @var string|null */
     protected $from;
 
+    /** @var string|null */
+    protected $phoneField;
     /**
      * Set content for this message.
      */
     public function content(string $content): self
     {
         $this->content = trim($content);
+
+        return $this;
+    }
+
+
+     /**
+     * Set phone db field for this message.
+     */
+    public function phoneField(string $phoneField): self
+    {
+        $this->phoneField = trim($phoneField);
 
         return $this;
     }
@@ -48,5 +61,15 @@ class ZepsonSmsMessage
     public function getSender()
     {
         return $this->from ?? config('zepsonsms.from');
+    }
+
+    /**
+     * Get phone db field.
+     *
+     * @return string
+     */
+    public function getPhoneField()
+    {
+        return $this->phoneField ?? 'phone_number';
     }
 }

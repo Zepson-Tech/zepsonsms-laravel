@@ -6,7 +6,7 @@ use Exception;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\ZepsonSms\Exceptions\CouldNotSendNotification;
 use ZepsonSms\SDK\ZepsonSms as ZepsonSmsSDK;
-
+use Str;
 class ZepsonSmsChannel
 {
     /** @var ZepsonSmsSDK */
@@ -28,19 +28,46 @@ class ZepsonSmsChannel
     public function send($notifiable, Notification $notification)
     {
         $message = $notification->toZepsonSms($notifiable);
+        $phone_field = $message->getPhoneField();
 
         if (! $phoneNumber = $notifiable->routeNotificationFor('ZepsonSms')) {
-            $phoneNumber = $notifiable->phone_number;
+            $phoneNumber =  $this->formatContacts($notifiable->$phone_field, config('zepsonsms.country_code'));
         }
 
         try {
-            $this->ZepsonSms->sendSms([
+           dd( $this->ZepsonSms->sendSms([
                 'recipient' => $phoneNumber,
                 'message' => $message->getContent(),
-                'sender_id' => $message->getSender(),
-            ]);
+                'sender_id' => $message->getSender()??config('zepsonsms.from'),
+            ]));
         } catch (Exception $e) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($e->getMessage());
         }
     }
+
+
+
+function formatContacts($contact, $countryCode){
+    $phoneNumbers = null;
+
+        $totalDigits = Str::length($contact);
+        if($totalDigits==10){
+            $phoneNumbers = $countryCode.Str::substr($contact, 1, 9);
+        }
+        if($totalDigits==12){
+            $phoneNumbers = $contact;
+        }
+        if($totalDigits==13){
+            $phoneNumbers= $countryCode::substr($contact, 1, 13);
+        }
+        if($totalDigits==14){
+            $phoneNumbers = $countryCode.Str::substr($contact, 5, 14);
+        }
+
+
+    // dd($phoneNumbers);
+    return $phoneNumbers;
+
+
+}
 }

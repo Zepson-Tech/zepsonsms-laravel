@@ -31,7 +31,7 @@ class ZepsonSmsChannel
         $message = $notification->toZepsonSms($notifiable);
         $phone_field = $message->getPhoneField();
 
-        if (!$phoneNumber = $notifiable->routeNotificationFor('ZepsonSms')) {
+        if (! $phoneNumber = $notifiable->routeNotificationFor('ZepsonSms')) {
             $phoneNumber = $this->formatContacts($notifiable->$phone_field, config('zepsonsms.country_code'));
         }
 

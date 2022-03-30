@@ -24,8 +24,8 @@ class ZepsonSmsMessage
     }
 
     /**
-    * Set phone db field for this message.
-    */
+     * Set phone db field for this message.
+     */
     public function phoneField(string $phoneField): self
     {
         $this->phoneField = trim($phoneField);

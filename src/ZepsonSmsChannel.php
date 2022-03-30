@@ -31,7 +31,7 @@ class ZepsonSmsChannel
         $message = $notification->toZepsonSms($notifiable);
         $phone_field = $message->getPhoneField();
 
-        if (! $phoneNumber = $notifiable->routeNotificationFor('ZepsonSms')) {
+        if (!$phoneNumber = $notifiable->routeNotificationFor('ZepsonSms')) {
             $phoneNumber = $this->formatContacts($notifiable->$phone_field, config('zepsonsms.country_code'));
         }
 
@@ -52,7 +52,7 @@ class ZepsonSmsChannel
 
         $totalDigits = Str::length($contact);
         if ($totalDigits == 10) {
-            $phoneNumbers = $countryCode.Str::substr($contact, 1, 9);
+            $phoneNumbers = $countryCode . Str::substr($contact, 1, 9);
         }
         if ($totalDigits == 12) {
             $phoneNumbers = $contact;
@@ -61,7 +61,7 @@ class ZepsonSmsChannel
             $phoneNumbers = $countryCode::substr($contact, 1, 13);
         }
         if ($totalDigits == 14) {
-            $phoneNumbers = $countryCode.Str::substr($contact, 5, 14);
+            $phoneNumbers = $countryCode . Str::substr($contact, 5, 14);
         }
 
 
